@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Home from './components/Home/Home'
+import Footer from "./components/Footer/Footer"
 
 function App() {
 
@@ -20,10 +21,14 @@ function App() {
               <Header />
               <Sidebar /> 
               <main className="w-full 800:w-[75%] flex flex-col 
-              pt-10 600:pt-[100px] 800:pt-[61px] p-5 800:p-0
+              pt-10 600:pt-[100px] 800:pt-[61px] p-5 pb-10 800:p-0 800:pb-40 
               overflow-hidden"> 
                 <Home />
               </main>
+              <footer className='sticky border-t border-gray 
+              bottom-0 w-full h-fit py-5 flex justify-center items-center'>
+                <Footer />
+              </footer>
             </div>
           }
         />

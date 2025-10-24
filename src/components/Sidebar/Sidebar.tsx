@@ -1,7 +1,7 @@
 function Sidebar (){
     return(
         <div className="fixed top-0 left-0 h-full hidden 800:flex flex-col pl-5 justify-start items-center gap-5 pb-5">
-           <div className="h-[70%] w-0.5 bg-gray"></div>
+           <div className="h-[40%] w-0.5 bg-gray"></div>
            <div className="flex flex-col gap-4">
                 <a href="https://github.com/jonsnow966" target="_blank" className="cursor-pointer
                 rounded-3xl hover:bg-background-2">
