@@ -7,10 +7,50 @@
   --color-white: #FFFFFF;
   --color-background: #282C33;
   --color-background-2: #3C414B;
+
+  --breakpoint-200: 200px;
+  --breakpoint-300: 300px;
+  --breakpoint-400: 400px;
+  --breakpoint-500: 500px;
+  --breakpoint-600: 600px;
+  --breakpoint-700: 700px;
+  --breakpoint-800: 800px;
+  --breakpoint-900: 900px;
+  --breakpoint-1000: 1000px;
+  --breakpoint-1100: 1100px;
+  --breakpoint-1200: 1200px;
+  --breakpoint-1300: 1300px;
+  --breakpoint-1400: 1400px;
+  --breakpoint-1500: 1500px;
+  --breakpoint-1600: 1600px;
+  --breakpoint-1700: 1700px;
+  --breakpoint-1800: 1800px;
 }
 
 :root {
   --font-fira: 'Fira Code', monospace;
 
   font-family: var(--font-fira);
+}
+
+body{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+/* ==== Hide scrollbar – works everywhere ==== */
+.hide-scrollbar {
+  -ms-overflow-style: none;      /* IE & Edge */
+  scrollbar-width: none;        /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari, Opera */
+}
+
+/* Optional: make sure the element can still be scrolled */
+.hide-scrollbar {
+  overflow-y: auto;   /* or overflow-x: auto */
+  overflow-x: hidden;
+}
+
 }

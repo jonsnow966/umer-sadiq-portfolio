@@ -12,10 +12,18 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="w-screen h-screen bg-background font-fira flex flex-col items-center">
+            <div className="relative w-full min-h-screen 
+            flex flex-col items-center 
+            font-fira 
+            bg-background 
+            overflow-hidden hide-scrollbar">
               <Header />
-              <Sidebar />
-              <Home />
+              <Sidebar /> 
+              <main className="w-full 800:w-[75%] flex flex-col 
+              pt-[100px] 800:pt-[61px] p-5 800:p-0
+              overflow-hidden"> 
+                <Home />
+              </main>
             </div>
           }
         />
