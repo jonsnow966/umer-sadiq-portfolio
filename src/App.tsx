@@ -20,7 +20,7 @@ function App() {
               <Header />
               <Sidebar /> 
               <main className="w-full 800:w-[75%] flex flex-col 
-              pt-[100px] 800:pt-[61px] p-5 800:p-0
+              pt-10 600:pt-[100px] 800:pt-[61px] p-5 800:p-0
               overflow-hidden"> 
                 <Home />
               </main>
