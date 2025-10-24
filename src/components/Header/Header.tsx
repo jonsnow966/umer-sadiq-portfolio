@@ -35,15 +35,15 @@ function Header (){
         <div className="fixed top-0 flex justify-center items-center z-100 bg-background h-[91px] 800:h-[61px] 
         w-full 800:w-[75%]">
 
-            <div className="w-full h-full flex flex-row px-2 shadow-sm pl-8 pb-5 pt-5 800:pl-0 800:pb-0">
+            <div className="w-full h-full flex flex-row shadow-sm pl-8 pr-2 pb-5 pt-5 800:pl-0 800:pb-0">
 
-                <div className="w-[250px] flex justify-start items-end gap-2 800:gap-1">
+                <div className="w-[250px] flex 800:pl-2 800:pb-1 justify-start items-end gap-2 800:gap-1">
                     <img rel="icon" src="favicon.png" className="w-10  800:w-[30px]"></img>
                     {/* <img rel="icon" src="favicon-2.png" className=" w-[80px] "></img> */}
                     <p className="font-fira text-white text-[25px] 800:text-[20px]">Umer</p>
                     <p className="font-fira text-white text-[25px] 800:text-[20px]">Sadiq</p>
                 </div>
-                <div className=" flex flex-2 justify-end items-end pr-5 800:pr-0 gap-4 900:gap-8 1000:gap-10">
+                <div className=" flex flex-2 justify-end items-end pb-1 pr-5 800:pr-0 gap-4 900:gap-8 1000:gap-10">
                     <a className="cursor-pointer hidden 800:flex">
                         <span className="text-primary text-[18px] 900:text-[20px]">#</span>
                         <span className="text-white text-[18px] 900:text-[20px]">home</span>

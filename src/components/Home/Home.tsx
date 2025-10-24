@@ -17,9 +17,10 @@ function Home(){
 
                     <button className="w-fit border border-primary py-1 px-3 text-white
                     text-[18px] 1300:text-[22px] 1700:text-[24px]
+                    hover:text-primary hover:border-white hover:bg-background-2
                     cursor-pointer">
-                    Contact me !!
-                </button>
+                        Contact me !!
+                    </button>
 
                 </div>
 
