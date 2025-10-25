@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
 function Home(){
+
+    const navigate = useNavigate();
+
     return(
         <div className="w-full flex flex-col">
             <div className="w-full flex flex-col 600:flex-row">
@@ -18,7 +23,8 @@ function Home(){
                     <button className="w-fit border border-primary py-1 px-3 text-white
                     text-[18px] 1300:text-[22px] 1700:text-[24px]
                     hover:text-primary hover:border-white hover:bg-background-2
-                    cursor-pointer">
+                    cursor-pointer"
+                    onClick={() => navigate(`/contact`)}>
                         Contact me !!
                     </button>
 

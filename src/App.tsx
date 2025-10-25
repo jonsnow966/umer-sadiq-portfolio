@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import Homepage from './components/Homepage/Homepage'
-import About from './components/About/About';
-import Works from './components/Works/Works';
-import MyContact from "./components/MyContact/MyContact"
+import Aboutpage from './components/Aboutpage/Aboutpage';
+import Workpage from './components/Workpage/Workpage';
+import Contactpage from "./components/Contactpage/Contactpage"
 import Loader from './components/Loader/Loader';
 
 function App() {
@@ -31,9 +31,9 @@ function App() {
       <div className={isLoading ? 'invisible' : ''}/>
       <Routes>
         <Route path="/" element={ <Homepage /> }/>
-        <Route path="/aboutme" element={<About />} />
-        <Route path="/works" element={<Works />} />
-        <Route path="/contact" element={<MyContact />} />
+        <Route path="/aboutme" element={<Aboutpage />} />
+        <Route path="/works" element={<Workpage />} />
+        <Route path="/contact" element={<Contactpage />} />
       </Routes>
     </BrowserRouter>
   )
