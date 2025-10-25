@@ -1,19 +1,22 @@
 import {useState, useEffect, useRef} from "react"
 import Navbar from "../Navbar/Navbar"
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Header (){
+    
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const [isNavOpen, setIsNavOpen] = useState(false);
     const navRef = useRef<HTMLDivElement | null>(null);
     const navButtonRef = useRef<HTMLButtonElement | null>(null);
 
     const toggleNavbar = () =>{
-        setIsNavOpen(!isNavOpen);
+        setIsNavOpen((prev) => !prev);
     }
 
     useEffect(() => {
         const handleClickOutside = (event : MouseEvent) => {
-        console.log('navRef:', navRef.current, 'navButtonRef:', navButtonRef.current);
         if (
             navRef.current &&
             !navRef.current.contains(event.target as Node) &&
@@ -30,6 +33,16 @@ function Header (){
         };
     }, []);
 
+    const getDesktopLinkClass = (path: string) => {
+    const isActive = location.pathname === path;
+    return `cursor-pointer hidden 800:flex items-center gap-1 transition-colors ${
+        isActive
+            ? "text-black"
+            : "text-gray hover:text-primary"
+        }`;
+    };
+
+    const isActive = (path: string) => location.pathname === path;
 
     return(
         <div className="fixed top-0 flex justify-center items-center z-100 bg-background h-[91px] 800:h-[61px] 
@@ -44,21 +57,33 @@ function Header (){
                     <p className="font-fira text-white text-[25px] 800:text-[20px]">Sadiq</p>
                 </div>
                 <div className=" flex flex-2 justify-end items-end pb-1 pr-5 800:pr-0 gap-4 900:gap-8 1000:gap-10">
-                    <a className="cursor-pointer hidden 800:flex">
+                    <a className={getDesktopLinkClass("/home")}
+                    onClick={() => navigate("/")}>
                         <span className="text-primary text-[18px] 900:text-[20px]">#</span>
-                        <span className="text-white text-[18px] 900:text-[20px]">home</span>
+                        <span className={`text-[18px] 900:text-[20px] ${
+                        location.pathname === "/" ? "text-white" : "text-gray"
+                        }`}>home</span>
                     </a>
-                    <a className="cursor-pointer hidden 800:flex">
+                    <a className={getDesktopLinkClass("/about")}
+                    onClick={() => navigate(`/aboutme`)}>
                         <span className="text-primary text-[18px] 900:text-[20px]">#</span>
-                        <span className="text-gray text-[18px] 900:text-[20px]">about-me</span>
+                        <span className={`text-[18px] 900:text-[20px] ${
+                        location.pathname === "/aboutme" ? "text-white" : "text-gray"
+                        }`}>about-me</span>
                     </a>
-                    <a className="cursor-pointer hidden 800:flex">
+                    <a className={getDesktopLinkClass("/works")}
+                    onClick={() => navigate(`/works`)}>
                         <span className="text-primary text-[18px] 900:text-[20px]">#</span>
-                        <span className="text-gray text-[18px] 900:text-[20px]">works</span>
+                        <span className={`text-[18px] 900:text-[20px] ${
+                        location.pathname === "/works" ? "text-white" : "text-gray"
+                        }`}>works</span>
                     </a>
-                    <a className="cursor-pointer hidden 800:flex">
+                    <a className={getDesktopLinkClass("/contact")}
+                    onClick={() => navigate(`/contact`)}>
                         <span className="text-primary text-[18px] 900:text-[20px]">#</span>
-                        <span className="text-gray text-[18px] 900:text-[20px]">contacts</span>
+                        <span className={`text-[18px] 900:text-[20px] ${
+                        location.pathname === "/contact" ? "text-white" : "text-gray"
+                        }`}>contacts</span>
                     </a>
                     <button className="cursor-pointer flex 800:hidden"
                     onClick={toggleNavbar}
@@ -70,11 +95,9 @@ function Header (){
                     flex items-center justify-center overflow-hidden equal-shadow
                     transition-all duration-300 ease-in-out
                     h-screen bg-[#282c33f5]
-                    ${
-                    isNavOpen ? 'w-screen xs:w-[350px] sm:w-[400px] 800:hidden' : 'w-px'
-                    }`}
+                    ${isNavOpen ? 'w-screen xs:w-[350px] sm:w-[400px] 800:hidden' : 'w-px'}`}
                     ref={navRef}>
-                    <Navbar/>
+                    <Navbar isActive={isActive} closeMenu={() => setIsNavOpen(false)}/>
                     </div>
                 </div>
                 

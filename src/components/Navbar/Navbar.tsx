@@ -1,22 +1,50 @@
-export default function Navbar(){
+import { useNavigate } from "react-router-dom"
+
+interface NavbarProps {
+  isActive: (path: string) => boolean;
+  closeMenu: () => void;
+}
+
+export default function Navbar({ isActive, closeMenu }: NavbarProps){
+
+    const navigate = useNavigate();
+
+    const handleClick = (path: string) => {
+        navigate(path);
+        closeMenu();
+    };
+
+    const linkClass = (path: string) =>
+        `flex items-center gap-2 px-6 py-3 text-lg transition-colors ${
+        isActive(path) ? "text-white font-semibold" : "text-gray hover:text-primary"
+        }`;
+
     return(
         <div className="w-full h-full flex flex-col justify-start items-start pb-20">
             <div className="flex flex-2 flex-col justify-start items-start pt-15 pl-10 gap-10">
-                <a className="cursor-pointer flex">
+                <a className={linkClass("/")} onClick={() => handleClick("/")}>
                     <span className="text-primary text-[40px] 700:text-[30px]">#</span>
-                    <span className="text-white text-[40px] 700:text-[30px]">home</span>
+                    <span className={`text-[40px] 700:text-[30px] ${
+                    location.pathname === "/" ? "text-white" : "text-gray"
+                    }`}>home</span>
                 </a>
-                <a className="cursor-pointer flex ">
+                <a className={linkClass("/aboutme")} onClick={() => handleClick("/aboutme")}>
                     <span className="text-primary text-[40px] 700:text-[30px]">#</span>
-                    <span className="text-gray text-[40px] 700:text-[30px]">about-me</span>
+                    <span className={`text-[40px] 700:text-[30px] ${
+                    location.pathname === "/aboutme" ? "text-white" : "text-gray"
+                    }`}>about-me</span>
                 </a>
-                <a className="cursor-pointer flex">
+                <a className={linkClass("/works")} onClick={() => handleClick("/works")}>
                     <span className="text-primary text-[40px] 700:text-[30px]">#</span>
-                    <span className="text-gray text-[40px] 700:text-[30px]">works</span>
+                    <span className={`text-[40px] 700:text-[30px] ${
+                    location.pathname === "/works" ? "text-white" : "text-gray"
+                    }`}>works</span>
                 </a>
-                <a className="cursor-pointer flex">
+                <a className={linkClass("/contacts")} onClick={() => handleClick("/contact")}>
                     <span className="text-primary text-[40px] 700:text-[30px]">#</span>
-                    <span className="text-gray text-[40px] 700:text-[30px]">contacts</span>
+                    <span className={`text-[40px] 700:text-[30px] ${
+                    location.pathname === "/contact" ? "text-white" : "text-gray"
+                    }`}>contacts</span>
                 </a>
             </div>
 
